@@ -398,16 +398,18 @@ class tinc (
     audit   => $tinc::manage_audit,
   }
 
-  file { 'tinc.init':
-    ensure  => $tinc::manage_file,
-    path    => '/etc/init.d/tinc',
-    mode    => '0755',
-    owner   => $tinc::config_file_owner,
-    group   => $tinc::config_file_group,
-    require => Package['tinc'],
-    notify  => $tinc::manage_service_autorestart,
-    content => template($tinc::init_script_template),
-    audit   => $tinc::manage_audit,
+  if $tinc::init_script_template != '' {
+    file { 'tinc.init':
+      ensure  => $tinc::manage_file,
+      path    => '/etc/init.d/tinc',
+      mode    => '0755',
+      owner   => $tinc::config_file_owner,
+      group   => $tinc::config_file_group,
+      require => Package['tinc'],
+      notify  => $tinc::manage_service_autorestart,
+      content => template($tinc::init_script_template),
+      audit   => $tinc::manage_audit,
+    }
   }
 
   file { 'tinc-up':
