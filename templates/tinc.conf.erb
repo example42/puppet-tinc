@@ -7,15 +7,15 @@ Name = <%= scope.lookupvar('tinc::host_name') %>
 # Comment these out to make yourself a listen-only connection
 # You must use the name of another tinc host.
 # May be used multiple times for redundance.
-<% if scope.lookupvar('tinc::connect_to') then -%>
-<% scope.lookupvar('tinc::connect_to').each do |sl| %>ConnectTo = <%= sl %> <% end %>
+<% if scope.lookupvar('tinc::array_connect_to') then -%>
+<% scope.lookupvar('tinc::array_connect_to').each do |sl| %>ConnectTo = <%= sl %> <% end %>
 <% end -%>
 
 # The tap device tinc will use.
 # Default is /dev/tap0 for ethertap or FreeBSD,
 # /dev/tun0 for Solaris and OpenBSD,
 # and /dev/net/tun for Linux tun/tap device.
-Device = /dev/net/<%= device %>
+Device = /dev/net/<%= @device %>
 # DeviceType = type (platform dependent)
 # dummy raw_socket multicast uml vde tun tap
 

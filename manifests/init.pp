@@ -345,6 +345,13 @@ class tinc (
     default   => template($tinc::template),
   }
 
+  $array_connect_to = is_array($tinc::connect_to) ? {
+    false     => $tinc::connect_to ? {
+      ''      => [],
+      default => split($tinc::connect_to, ','),
+    },
+    default   => $tinc::connect_to,
+  }
 
   ### Managed resources
   package { 'tinc':
