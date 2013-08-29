@@ -1,6 +1,6 @@
 # Define: tinc::tunnel
 #
-# Manages tinc tunnels 
+# Manages tinc tunnels
 #
 # Parameters:
 #
@@ -8,7 +8,7 @@
 #   Sets general tinc mode: router|switch|hub. Default: router
 #
 # [*connect_to*]
-#   An array of servers to connect to. 
+#   An array of servers to connect to.
 #
 # [*device*]
 #   Device Type. Default: tun

@@ -393,7 +393,7 @@ class tinc (
     replace => $tinc::manage_file_replace,
     audit   => $tinc::manage_audit,
   }
- 
+
   file { 'tinc.dir_hosts':
     ensure  => directory,
     path    => "${tinc::config_dir}/hosts",
