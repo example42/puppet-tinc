@@ -36,7 +36,7 @@ start() {
 	umask 077
 
         echo -n $"Starting Tinc: "
-        daemon --pidfile="$PIDFILE" $exec "$PIDFILE" $TINCD_OPTIONS
+        daemon --pidfile="$PIDFILE" $exec --pidfile="$PIDFILE" $TINCD_OPTIONS
         RETVAL=$?
         echo
         [ $RETVAL -eq 0 ] && touch $lockfile
