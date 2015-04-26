@@ -360,12 +360,12 @@ class tinc (
   }
 
   service { 'tinc':
-    ensure     => $tinc::manage_service_ensure,
-    name       => $tinc::service,
-    enable     => $tinc::manage_service_enable,
-    hasstatus  => $tinc::service_status,
-    pattern    => $tinc::process,
-    require    => Package['tinc'],
+    ensure    => $tinc::manage_service_ensure,
+    name      => $tinc::service,
+    enable    => $tinc::manage_service_enable,
+    hasstatus => $tinc::service_status,
+    pattern   => $tinc::process,
+    require   => Package['tinc'],
   }
 
   file { 'tinc.conf':

@@ -26,7 +26,7 @@ class tinc::params {
   $connect_to = ''
   $source_dir_hosts = ''
   $device = 'tun'
-  $subnet = $network_eth0
+  $subnet = $::network_eth0
   $template_hostfile = 'tinc/host.conf.erb'
 
   ### Application related parameters
